@@ -5,10 +5,14 @@ const app = express()
 const mailer = require('nodemailer')
 const axios = require('axios')
 const PORT = process.env.PORT || 4000
-
 require('dotenv').config()
   
-app.use(cors())
+const corsOpts = {
+    origin: [process.env.STAGING_URL],
+    optionsSuccessStatus: 200 
+  }
+
+app.use(cors(corsOpts))
 
 let urlencodedParser = bodyParser.urlencoded({ extended: true })
 app.use(urlencodedParser);
