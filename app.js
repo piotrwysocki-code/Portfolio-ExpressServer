@@ -99,7 +99,7 @@ app.post('/send', urlencodedParser, (req, res)=>{
                                 return console.log(error)
                             }else{
                                 console.log('Confirmation message sent: %s', info.accepted)
-                                res.send(req.body)
+                                return res.json({"Success": true, "msg":"Successfully delivered"});
                             }
                         })
                     }
